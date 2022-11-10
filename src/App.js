@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import data from "./data";
+import List from "./List.js";
 
 function App() {
+  const [bible, setBible] = useState(data);
+
+  const handleDelete = (book) => {
+    return setBible(
+      bible.filter((testament) => {
+        return testament.book !== book;
+      })
+    );
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <section className="container">
+        <h3>{bible.length} Bible Chapters Today!</h3>
+        <List bible={bible} handleDelete={handleDelete} />
+        <button onClick={() => setBible([])}> READ ALL!</button>
+      </section>
+    </main>
+    // <div className="main">
+    //   <List bible={bible}></List>
+    //   <button
+    //     className="container button"
+    //     onClick={() => {
+    //       setBible([]);
+    //     }}
+    //   >
+    //     DELETE CHAPTERS
+    //   </button>
+    // </div>
   );
 }
 
