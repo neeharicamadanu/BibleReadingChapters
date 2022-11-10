@@ -11,6 +11,7 @@ This project is containing the current chapter to be read from the book of Bible
 5. created dictionary of data containing image links, data of chapters and verses.
 6. The spread Operator
 7. Arrow Function
+8. Count the number of chapters to read, and when done with one chapter count is updated!
 
 
 ### Website Link
